@@ -184,8 +184,6 @@ module.exports = {
         lineCount++;
       }
 
-      console.log("Line count", lineCount);
-
       if (lineCount > maxLines) {
         const name = lodash.upperFirst(
           astUtils.getFunctionNameWithKind(funcNode)

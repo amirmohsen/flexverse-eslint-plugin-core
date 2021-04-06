@@ -1,11 +1,32 @@
 {
   "name": "@flexverse/eslint-plugin-core",
+  "description": "Flexverse Core ESLint Plugin",
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "Amir Mohsen Abdolrazaghi <amirmohsen.a@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "lint:commits": "commitlint --from main --to HEAD --verbose",
+    "test": "node src/rules/maxLintsPerFunctionBody/maxLintsPerFunctionBody.test.js",
+    "pr:before": "yarn && yarn lint:fix",
+    "pr:checks": "yarn --frozen-lockfile && yarn lint && yarn test",
+    "release": "semantic-release",
+    "release:dry": "yarn release --dry-run --branches main,$(git branch --show-current)"
+  },
   "devDependencies": {
-    "eslint": "^7.23.0"
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "conventional-changelog-conventionalcommits": "^4.5.0",
+    "eslint": "^7.23.0",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2"
   },
   "dependencies": {
     "lodash": "^4.17.21"
