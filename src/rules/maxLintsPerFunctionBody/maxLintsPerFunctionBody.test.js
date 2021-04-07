@@ -28,6 +28,11 @@ const test = () => {
   console.log('3');
 }
 
+const withoutBody = () => ({
+  a: true,
+  b: 'hello world',
+})
+
 const my = function() {
   console.log('1');
   console.log('2');

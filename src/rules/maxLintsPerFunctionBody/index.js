@@ -136,8 +136,10 @@ module.exports = {
 
       if (["MethodDefinition", "Property"].includes(node.type)) {
         body = node.value.body.body;
-      } else {
+      } else if (node.body.body) {
         body = node.body.body;
+      } else {
+        body = [node.body];
       }
 
       if (!body.length) {
