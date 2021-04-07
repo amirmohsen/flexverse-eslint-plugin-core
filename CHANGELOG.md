@@ -1,3 +1,10 @@
+### [1.0.1](https://github.com/amirmohsen/flexverse-eslint-plugin-core/compare/v1.0.0...v1.0.1) (2021-04-07)
+
+
+### Bug Fixes
+
+* arrow functions ([c5c6c8c](https://github.com/amirmohsen/flexverse-eslint-plugin-core/commit/c5c6c8ca390526d54ca604e3532511068567dd67))
+
 ## 1.0.0 (2021-04-06)
 
 
