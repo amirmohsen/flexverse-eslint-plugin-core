@@ -2,7 +2,7 @@ export default {
   clearMocks: true,
   coverageDirectory: "out/coverage",
   testEnvironment: "node",
-  reporters: ["default", "jest-github-reporter"],
+  reporters: ["default"],
   coverageThreshold: {
     global: {
       branches: 0,
