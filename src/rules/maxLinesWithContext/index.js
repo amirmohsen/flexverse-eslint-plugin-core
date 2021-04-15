@@ -42,6 +42,8 @@ module.exports = {
     messages: {
       exceed:
         "File has too many lines ({{actual}}). Maximum allowed is {{max}}.",
+      exceedWithClass:
+        "Class file has too many lines ({{actual}}). Maximum allowed is {{max}}.",
     },
   },
 
@@ -146,9 +148,9 @@ module.exports = {
 
           context.report({
             loc,
-            messageId: "exceed",
+            messageId: hasClass ? "exceedWithClass" : "exceed",
             data: {
-              max,
+              max: finalMax,
               actual: lines.length,
             },
           });
