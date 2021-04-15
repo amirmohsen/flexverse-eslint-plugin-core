@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/amirmohsen/flexverse-eslint-plugin-core/compare/v1.0.2...v1.1.0) (2021-04-15)
+
+
+### Features
+
+* max-lines-with-context ([efc8871](https://github.com/amirmohsen/flexverse-eslint-plugin-core/commit/efc8871143e7d2d358034eb8b4ae6c085ee17a87))
+
+
+### Test
+
+* max-lines-with-context ([fd9a0be](https://github.com/amirmohsen/flexverse-eslint-plugin-core/commit/fd9a0be7d116186495737e249faa3fc2c787876c))
+
 ### [1.0.2](https://github.com/amirmohsen/flexverse-eslint-plugin-core/compare/v1.0.1...v1.0.2) (2021-04-09)
 
 
