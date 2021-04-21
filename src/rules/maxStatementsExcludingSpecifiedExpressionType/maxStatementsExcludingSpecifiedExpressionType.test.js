@@ -1,5 +1,5 @@
-const { RuleTester } = require('eslint');
-const rule = require('./index');
+const { RuleTester } = require("eslint");
+const rule = require("./index");
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2020 } });
 
@@ -148,7 +148,7 @@ const invalid = [
 
 const option = { max: 10 };
 
-ruleTester.run('max-statements-excluding-specified-expression-type', rule, {
+ruleTester.run("max-statements-excluding-specified-expression-type", rule, {
   valid: validWithoutExclusion.map((code) => ({
     code,
     options: [option],
@@ -175,12 +175,12 @@ const optionWithExclusion = [
     max: 10,
   },
   {
-    ignoreExpressionType: 'logger',
+    ignoreExpressionType: "logger",
   },
 ];
 
 ruleTester.run(
-  'max-statements-excluding-specified-expression-type with exclusion',
+  "max-statements-excluding-specified-expression-type with exclusion",
   rule,
   {
     valid: valid.map((code) => ({
