@@ -170,37 +170,37 @@ ruleTester.run("max-statements-excluding-specified-expression-type", rule, {
   }),
 });
 
-const optionWithExclusion = [
-  {
-    max: 10,
-  },
-  {
-    ignoreExpressionType: "logger",
-  },
-];
+// const optionWithExclusion = [
+//   {
+//     max: 10,
+//   },
+//   {
+//     ignoreExpressionType: 'logger',
+//   },
+// ];
 
-ruleTester.run(
-  "max-statements-excluding-specified-expression-type with exclusion",
-  rule,
-  {
-    valid: valid.map((code) => ({
-      code,
-      options: [optionWithExclusion],
-    })),
+// ruleTester.run(
+//   "max-statements-excluding-specified-expression-type with exclusion",
+//   rule,
+//   {
+//     valid: valid.map((code) => ({
+//       code,
+//       options: [optionWithExclusion],
+//     })),
 
-    invalid: invalid.map((code) => {
-      const max = option.max;
-      return {
-        code,
-        options: [optionWithExclusion],
-        errors: [
-          {
-            message: ` has too many "non-logger" statements (${
-              max + 1
-            }). Maximum allowed is ${max}.`,
-          },
-        ],
-      };
-    }),
-  }
-);
+//     invalid: invalid.map((code) => {
+//       const max = option.max;
+//       return {
+//         code,
+//         options: [optionWithExclusion],
+//         errors: [
+//           {
+//             message: ` has too many "non-logger" statements (${
+//               max + 1
+//             }). Maximum allowed is ${max}.`,
+//           },
+//         ],
+//       };
+//     }),
+//   }
+// );
