@@ -52,7 +52,7 @@ module.exports = {
     messages: {
       exceedDefault:
         '{{name}} has too many statements ({{count}}). Maximum allowed is {{max}}.',
-      exceedWithexcluded:
+      exceedWithExcluded:
         "{{name}} has too many statements that haven't been excluded ({{count}}). Maximum allowed is {{max}}.",
     },
   },
@@ -97,7 +97,7 @@ module.exports = {
         const name = lodash.upperFirst(astUtils.getFunctionNameWithKind(node));
 
         const messageId = exclusionCallback
-          ? 'exceedWithexcluded'
+          ? 'exceedWithExcluded'
           : 'exceedDefault';
 
         context.report({
