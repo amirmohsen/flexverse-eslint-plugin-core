@@ -1,8 +1,8 @@
 export default {
   clearMocks: true,
-  coverageDirectory: "out/coverage",
-  testEnvironment: "node",
-  reporters: ["default"],
+  coverageDirectory: 'out/coverage',
+  testEnvironment: 'node',
+  reporters: ['default'],
   coverageThreshold: {
     global: {
       branches: 0,
@@ -11,5 +11,6 @@ export default {
       statements: 0,
     },
   },
-  setupFilesAfterEnv: ["jest-chain"],
+  collectCoverageFrom: ['**/src/**'],
+  setupFilesAfterEnv: ['jest-chain'],
 };
