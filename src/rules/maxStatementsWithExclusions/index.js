@@ -1,34 +1,34 @@
-const lodash = require('lodash');
-const astUtils = require('eslint/lib/rules/utils/ast-utils');
+const lodash = require("lodash");
+const astUtils = require("eslint/lib/rules/utils/ast-utils");
 
 module.exports = {
   meta: {
-    type: 'suggestion',
+    type: "suggestion",
 
     docs: {
       description:
-        'enforce a maximum number of statements allowed in function blocks excluding specified expression type',
-      category: 'Stylistic Issues',
+        "enforce a maximum number of statements allowed in function blocks excluding specified expression type",
+      category: "Stylistic Issues",
       recommended: false,
-      url: 'https://eslint.org/docs/rules/max-statements',
+      url: "https://eslint.org/docs/rules/max-statements",
     },
 
     schema: [
       {
         oneOf: [
           {
-            type: 'integer',
+            type: "integer",
             minimum: 0,
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               maximum: {
-                type: 'integer',
+                type: "integer",
                 minimum: 0,
               },
               max: {
-                type: 'integer',
+                type: "integer",
                 minimum: 0,
               },
             },
@@ -37,13 +37,13 @@ module.exports = {
         ],
       },
       {
-        type: 'object',
+        type: "object",
         properties: {
           ignoreTopLevelFunctions: {
-            type: 'boolean',
+            type: "boolean",
           },
           exclusionCallback: {
-            type: 'string',
+            type: "string",
           },
         },
         additionalProperties: false,
@@ -51,7 +51,7 @@ module.exports = {
     ],
     messages: {
       exceedDefault:
-        '{{name}} has too many statements ({{count}}). Maximum allowed is {{max}}.',
+        "{{name}} has too many statements ({{count}}). Maximum allowed is {{max}}.",
       exceedWithExcluded:
         "{{name}} has too many statements that haven't been excluded ({{count}}). Maximum allowed is {{max}}.",
     },
@@ -74,12 +74,12 @@ module.exports = {
     let maxStatements = 10;
 
     if (
-      typeof option === 'object' &&
-      (Object.prototype.hasOwnProperty.call(option, 'maximum') ||
-        Object.prototype.hasOwnProperty.call(option, 'max'))
+      typeof option === "object" &&
+      (Object.prototype.hasOwnProperty.call(option, "maximum") ||
+        Object.prototype.hasOwnProperty.call(option, "max"))
     ) {
       maxStatements = option.maximum || option.max;
-    } else if (typeof option === 'number') {
+    } else if (typeof option === "number") {
       maxStatements = option;
     }
 
@@ -97,8 +97,8 @@ module.exports = {
         const name = lodash.upperFirst(astUtils.getFunctionNameWithKind(node));
 
         const messageId = exclusionCallback
-          ? 'exceedWithExcluded'
-          : 'exceedDefault';
+          ? "exceedWithExcluded"
+          : "exceedDefault";
 
         context.report({
           node,
@@ -169,11 +169,11 @@ module.exports = {
 
       BlockStatement: countStatements,
 
-      'FunctionDeclaration:exit': endFunction,
-      'FunctionExpression:exit': endFunction,
-      'ArrowFunctionExpression:exit': endFunction,
+      "FunctionDeclaration:exit": endFunction,
+      "FunctionExpression:exit": endFunction,
+      "ArrowFunctionExpression:exit": endFunction,
 
-      'Program:exit'() {
+      "Program:exit"() {
         if (topLevelFunctions.length === 1) {
           return;
         }
