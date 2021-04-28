@@ -12,5 +12,6 @@ export default {
     },
   },
   collectCoverageFrom: ['**/src/**'],
+  coveragePathIgnorePatterns: ['./src/index.js'],
   setupFilesAfterEnv: ['jest-chain'],
 };

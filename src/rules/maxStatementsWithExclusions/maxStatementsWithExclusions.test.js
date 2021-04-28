@@ -1,6 +1,5 @@
 const { RuleTester } = require('eslint');
 const rule = require('./index');
-const mockCallbackStatementExclusions = require('../../../test/unit/utils/mockCallbackStatementExclusionsStatementExclusions');
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2020 } });
 
@@ -69,7 +68,11 @@ const invalidWithExclusions = [
 
 const optionsWithExclusions = [
   { max: 5 },
-  { exclusionCallback: require.resolve('./mockCallbackStatementExclusions') },
+  {
+    exclusionCallback: require.resolve(
+      '../../../test/unit/utils/mockCallbackStatementExclusions'
+    ),
+  },
 ];
 
 ruleTester.run('max-statements-with-exclusions', rule, {
@@ -149,16 +152,6 @@ const invalidWithoutExclusions = [
 }
 `,
 ];
-
-const optionsWithoutExclusion = [
-  {
-    max: 5,
-  },
-];
-
-ruleTester.run(
-  'max-statements-excluding-specified-expression-type without exclusion',
-
 
 const optionsWithoutExclusion = [
   {
