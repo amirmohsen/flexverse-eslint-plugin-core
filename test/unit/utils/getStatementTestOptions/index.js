@@ -1,12 +1,26 @@
 import { functionTypeConfig } from "./functionMappingConfig";
 
-const getStatementTestOptions = (statementList) =>
-  functionTypeConfig.reduce((acc, { message, templateFn }) => {
+const reduceTemplateFunctions = ({
+  templateFns,
+  statementList,
+  message,
+  type,
+}) =>
+  statementList.reduce((acc, statement) => {
     acc.push(
-      ...statementList.map((statements) => ({
+      ...templateFns.map((fn, i) => ({
         message,
-        code: templateFn(statements),
+        type,
+        code: fn(statement),
       }))
+    );
+    return acc;
+  }, []);
+
+const getStatementTestOptions = (statementList) =>
+  functionTypeConfig.reduce((acc, { message, templateFns, type }) => {
+    acc.push(
+      ...reduceTemplateFunctions({ templateFns, statementList, message, type })
     );
     return acc;
   }, []);

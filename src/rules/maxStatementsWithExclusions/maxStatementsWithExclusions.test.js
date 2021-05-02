@@ -1,7 +1,9 @@
 const { RuleTester } = require("eslint");
 const rule = require("./index");
 
-const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2020 } });
+const ruleTester = new RuleTester({
+  parserOptions: { ecmaVersion: 2020, sourceType: "module" },
+});
 
 import {
   validWithExclusions,
@@ -20,12 +22,12 @@ const optionsWithExclusions = [
 ];
 
 ruleTester.run("max-statements-with-exclusions", rule, {
-  valid: validWithExclusions.map(({ message, code }) => ({
+  valid: validWithExclusions.map(({ message, code, type }) => ({
     code,
     options: optionsWithExclusions,
   })),
 
-  invalid: invalidWithExclusions.map(({ message, code }) => {
+  invalid: invalidWithExclusions.map(({ message, code, type }) => {
     const max = optionsWithExclusions[0].max;
     return {
       code,
@@ -51,12 +53,12 @@ ruleTester.run(
   "max-statements-excluding-specified-expression-type without exclusion",
   rule,
   {
-    valid: validWithoutExclusions.map(({ message, code }) => ({
+    valid: validWithoutExclusions.map(({ message, code, type }) => ({
       code,
       options: optionsWithoutExclusion,
     })),
 
-    invalid: invalidWithoutExclusions.map(({ message, code }) => {
+    invalid: invalidWithoutExclusions.map(({ message, code, type }) => {
       const max = optionsWithoutExclusion[0].max;
       return {
         code,
