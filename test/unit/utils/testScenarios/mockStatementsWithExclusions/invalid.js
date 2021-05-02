@@ -1,4 +1,4 @@
-import getStatementTestOptions from '../../getStatementTestOptions';
+import getStatementTestOptions from "../../getStatementTestOptions";
 
 export const invalidWithExclusionsStatements = [
   `console.log('1');
@@ -13,8 +13,8 @@ export const invalidWithExclusionsStatements = [
     console.log('4');
     console.log('5');
     console.log('6');
-    logger.log('11');`
-]
+    logger.log('11');`,
+];
 
 export const invalidWithoutExclusionsStatements = [
   `console.log('1');
@@ -28,9 +28,13 @@ export const invalidWithoutExclusionsStatements = [
     console.log('3');
     console.log('4');
     console.log('5');
-    logger.log('6');`
-]
+    logger.log('6');`,
+];
 
-export const invalidWithExclusions = getStatementTestOptions(invalidWithExclusionsStatements)
+export const invalidWithExclusions = getStatementTestOptions(
+  invalidWithExclusionsStatements
+);
 
-export const invalidWithoutExclusions = getStatementTestOptions(invalidWithoutExclusionsStatements)
+export const invalidWithoutExclusions = getStatementTestOptions(
+  invalidWithoutExclusionsStatements
+);
