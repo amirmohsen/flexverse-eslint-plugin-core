@@ -1,3 +1,10 @@
+### [1.2.1](https://github.com/amirmohsen/flexverse-eslint-plugin-core/compare/v1.2.0...v1.2.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* exporting max statements with exclusions rule ([6ef5ca4](https://github.com/amirmohsen/flexverse-eslint-plugin-core/commit/6ef5ca489f0db00779d53c87225f889b47680d54))
+
 ## [1.2.0](https://github.com/amirmohsen/flexverse-eslint-plugin-core/compare/v1.1.0...v1.2.0) (2021-05-05)
 
 
